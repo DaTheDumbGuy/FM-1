@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/assets/CSS/design.css" />
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="result-section">
+        <header>Your Result</header>
+        <p class="result"><span>76</span> of 100</p>
+        <p class="description">
+          <span>Great </span>You scored higher than 65% of the people who have
+          taken these tests.
+        </p>
+      </section>
+
+      <section class="summary">
+        <header>Summary</header>
+        <ul id="summary-data">
+          <!-- Data from JSON file -->
+        </ul>
+        <button type="submit" class="continue-btn">Continue</button>
+      </section>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/DaTheDumbGuy" target="_blank">Dan</a>.
+    </div>
+
+    <script>
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the JSON data
+          displayData(data);
+        })
+        .catch((error) => {
+          console.error("Error loading JSON data: ", error);
+        });
+
+      function displayData(data) {
+        const dataContainer = document.getElementById("summary-data");
+        dataContainer.innerHTML = data
+          .map((data) => {
+            return `<li class="${
+              data.category[0].toLowerCase() + data.category.slice(1)
+            }"  >
+            <div class="category">
+              <object
+                data="${data.icon}"
+                type="image/svg+xml"
+                width="20"
+                height="20"
+              >
+                Your browser does not support SVG.</object
+              >${data.category}
+            </div>
+            <div class="score"><span>${data.score}</span> / 100</div>
+          </li>`;
+          })
+          .join("");
+      }
+    </script>
+  </body>
+</html>

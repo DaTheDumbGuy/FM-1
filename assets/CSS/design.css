@@ -1,0 +1,199 @@
+@font-face {
+    font-family: 'Bold';
+    src: url('/assets/fonts/static/HankenGrotesk-Bold.ttf') format('truetype');  
+}
+@font-face {
+    font-family: 'ExtraBold';
+    src: url('/assets//fonts/static/HankenGrotesk-ExtraBold.ttf') format('truetype');  
+}
+@font-face {
+    font-family: 'Medium';
+    src: url('/assets/fonts/static/HankenGrotesk-Medium.ttf') format('truetype');  
+}
+@font-face {
+    font-family: 'Variable';
+    src: url('/assets/fonts/HankenGrotesk-VariableFont_wght.ttf') format('truetype');  
+}
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+main{
+    border:1px solid black;
+    text-align: center;
+    height:100vh;
+    font-family:'Variable';
+}  
+.result-section{
+    background:linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    height:45%;
+    border-radius: 0 0 30px 30px;
+} 
+.result-section header{
+    padding: 20px 0;
+    color:hsla(0, 0%, 100%,0.7);
+    font-family:'Bold';
+}
+.result-section .result{
+    width:130px;
+    height:130px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column  ;
+    margin:auto;
+    border-radius: 200%;
+    margin-bottom: 20px;
+    background:linear-gradient( hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));                                                                                                                                                             
+    color:hsla(0, 0%, 100%,0.5);
+}
+.result-section .result span{
+    color:hsl(0, 0%, 100%);
+    font-family:'ExtraBold';
+    font-size:2.5rem;
+}
+.result-section .description{
+    display:flex;
+    flex-direction: column;
+    padding:0 40px;
+    line-height:1.5;
+    color:hsla(0, 0%, 100%,0.7);
+}
+.result-section .description span{
+    font-size:1.5rem;
+    margin-bottom:5px;
+    font-family: 'Bold';
+    color:hsl(0, 0%, 100%);
+}
+
+/* summary section */
+.summary{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 30px;
+    height:55%;
+}
+.summary header{
+    font-family:'Bold'; 
+    color:black;
+    font-size:18px;
+    align-self:flex-start;
+    margin-bottom:10px;
+}
+.summary ul{
+    height:70%;
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: space-between;
+}
+.summary ul li{
+    list-style:none;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height:20%;
+    border-radius: 10px;
+    padding: 0 15px;
+}
+.summary ul li .category{
+    display:flex;
+    align-items: center;
+}
+.summary ul li .category object{
+    margin-right:10px;
+}
+#summary-data li .score span{
+    color:black;
+}
+#summary-data li .score{
+    font-family:'Bold';
+    color:hsla(0, 0%, 0%, 0.4);
+}
+#summary-data li .category{
+    font-family:'Medium';
+}
+
+.summary ul .reaction{
+    background-color: hsla(0, 100%, 67%,0.05);
+}
+.summary ul .reaction .category{
+    color:hsl(0, 100%, 67%);
+}
+.summary ul .memory{
+    background-color: hsla(39, 100%, 56%, 0.05);
+}
+.summary ul .memory .category{
+    color:hsl(39, 100%, 56%);
+}
+.summary ul .verbal{
+    background-color: hsla(166, 100%,37%, 0.05);
+}
+.summary ul .verbal .category{
+    color:hsl(166, 100%, 37%);
+}
+.summary ul .visual{
+    background-color: hsla(234, 85%, 45%,0.05);
+}
+.summary ul .visual .category{
+    color: hsl(234, 85%, 45%);
+}
+
+.continue-btn{
+    height:15%;
+    border-radius:50px;
+    background: hsl(224, 30%, 27%);
+    color:white;
+    border:none;
+    font-family: 'Bold';
+    font-size:18px;
+}
+.continue-btn:hover{
+    background:linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+}
+@media (min-width: 1024px) {
+    main{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    main .result-section, main .summary{
+        width:30%;
+        height:50%;
+        max-width: 320px;
+    
+    }
+    .result-section{
+        border-radius: 30px;
+    }
+    .result-section .result{
+        width:150px;
+        height:150px;
+        margin-bottom:20px;
+    }
+    .result-section .result span{
+        font-size:3.5rem;
+    }
+    .summary{
+        position:relative
+    }
+    .summary::before {
+        content: ""; 
+        position: absolute; 
+        top: 0; 
+        right:0;
+        width: 110%; 
+        height: 100%; 
+        z-index:-1;
+        box-shadow: 2px 2px 20px lightblue;
+        border-radius: 0 30px 30px 0;
+      }
+  
+}
+  
